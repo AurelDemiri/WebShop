@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="home">controller.handler.HomeHandler</entry>
+    <entry key="personoverview">controller.handler.UserOverviewHandler</entry>
+    <entry key="signup">controller.handler.SignUpHandler</entry>
+    <entry key="checkpassword">controller.handler.CheckPasswordHandler</entry>
+    <entry key="deleteperson">controller.handler.DeletePersonHandler</entry>
+    <entry key="productoverview">controller.handler.ProductOverviewHandler</entry>
+    <entry key="addproduct">controller.handler.AddProductHandler</entry>
+    <entry key="updateproduct">controller.handler.UpdateProductHandler</entry>
+    <entry key="deleteproduct">controller.handler.DeleteProductHandler</entry>
+</properties>
