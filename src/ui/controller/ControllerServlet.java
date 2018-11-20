@@ -169,7 +169,7 @@ public class ControllerServlet extends HttpServlet {
 
     private String getSignUp(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        return "signUp.jsp";
+        return "signup.jsp";
     }
 
     private String getCheckPassword(HttpServletRequest request, HttpServletResponse response)
