@@ -19,7 +19,7 @@
     <main>
         <jsp:include page="errormessage.jsp" />
 
-        <form method="post" action="Controller?action=signUp" novalidate="novalidate">
+        <form method="post" action="Controller?action=signup" novalidate="novalidate">
             <!-- novalidate in order to be able to run tests correctly -->
             <p><label for="userId">User id</label><input type="text" id="userId" name="userId"
                                                          required value="<c:out value='${keptUserId}'/>"></p>

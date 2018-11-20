@@ -21,7 +21,7 @@ public class RegisterTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\Admin\\Google Drive\\Documents\\School\\web3\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get(path + "?action=signUp");
+        driver.get(path + "?action=signup");
     }
 
     @After
@@ -170,7 +170,7 @@ public class RegisterTest {
         String useridRandom = generateRandomUseridInOrderToRunTestMoreThanOnce("pierke");
         submitForm(useridRandom, "Pieter", "Pieters", "pieter.pieters@hotmail.com", "1234");
 
-        driver.get(path + "?action=signUp");
+        driver.get(path + "?action=signup");
 
         submitForm(useridRandom, "Pieter", "Pieters", "pieter.pieters@hotmail.com", "1234");
 
