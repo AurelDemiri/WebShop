@@ -39,15 +39,17 @@ public class HomeHandler extends RequestHandler {
 
     @Override
     public void handleGet(HttpServletRequest request, HttpServletResponse response) {
-        for (Cookie cookie : request.getCookies()) {
-            if (cookie.getName().equals("showquote")) {
+        if (request.getCookies() != null) {
+            for (Cookie cookie : request.getCookies()) {
+                if (cookie.getName().equals("showquote")) {
 
-                String choice = cookie.getValue();
-                request.setAttribute("showquote", choice);
-                if (choice.equals("yes"))
-                    request.setAttribute("quote", quotes.get(random.nextInt(quotes.size())));
+                    String choice = cookie.getValue();
+                    request.setAttribute("showquote", choice);
+                    if (choice.equals("yes"))
+                        request.setAttribute("quote", quotes.get(random.nextInt(quotes.size())));
 
-                break;
+                    break;
+                }
             }
         }
 
