@@ -17,7 +17,7 @@
 
     </header>
     <main>
-        <jsp:include page="errormessage.jsp" />
+        <jsp:include page="errormessage.jsp"/>
 
         <form method="post" action="Controller?action=signup" novalidate="novalidate">
             <!-- novalidate in order to be able to run tests correctly -->
@@ -32,7 +32,6 @@
             <p><label for="password">Password</label><input type="password" id="password"
                                                             required name="password"></p>
             <p><input type="submit" id="signUp" value="Sign Up"></p>
-
         </form>
     </main>
     <footer>

@@ -10,4 +10,5 @@
     <entry key="addproduct">controller.handler.AddProductHandler</entry>
     <entry key="updateproduct">controller.handler.UpdateProductHandler</entry>
     <entry key="deleteproduct">controller.handler.DeleteProductHandler</entry>
+    <entry key="changepreferences">controller.handler.ChangePreferencesHandler</entry>
 </properties>

@@ -141,6 +141,10 @@ input {
     height: 25px;
 }
 
+input[type="radio"] {
+    height: auto;
+}
+
 /* desktop */
 @media screen and (min-width: 650px) {
     div#container {

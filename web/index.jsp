@@ -24,6 +24,15 @@
         dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
         aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
         qui ratione voluptatem sequi nesciunt.
+        <br />
+        <form method="post" action="Controller?action=changepreferences" novalidate>
+            <p>Do you want to see a quote?</p>
+            <p><input type="radio" name="showquote" value="yes"<c:if test="${showquote == 'yes'}"> checked</c:if>> Yes
+               <input type="radio" name="showquote" value="no"<c:if test="${showquote == 'no'}"> checked</c:if>> No
+            </p>
+            <p><input type="submit" id="send" value="Send"></p>
+        </form>
+        <c:if test="${quote != null}"><p><c:out value='${quote}'/></p></c:if>
     </main>
     <footer> &copy; Webontwikkeling 3, UC Leuven-Limburg</footer>
 </div>
