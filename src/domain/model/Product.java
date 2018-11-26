@@ -69,7 +69,7 @@ public class Product {
 
     public void setPrice(double price) {
         if (price < 0) {
-            throw new DomainException("Give a valid price");
+            throw new DomainException("The price \"" + price + "\" is not valid");
         }
         this.price = price;
     }
