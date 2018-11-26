@@ -91,12 +91,11 @@ public class ProductDbSql implements ProductDb {
 
         try (
                 Connection connection = DriverManager.getConnection(url, properties);
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO product (productid, name, description, price) VALUES (?,?,?,?)")
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO product (name, description, price) VALUES (?,?,?)")
         ) {
-            statement.setInt(1, product.getProductId());
-            statement.setString(2, product.getName());
-            statement.setString(3, product.getDescription());
-            statement.setDouble(4, product.getPrice());
+            statement.setString(1, product.getName());
+            statement.setString(2, product.getDescription());
+            statement.setDouble(3, product.getPrice());
             statement.executeUpdate();
         } catch (SQLException e) {
             throw new DbException(e);
