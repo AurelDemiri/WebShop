@@ -35,6 +35,7 @@ public class UpdateProductHandler extends RequestHandler {
             product.setName(name);
             product.setDescription(description);
             product.setPrice(price);
+            getService().updateProduct(product);
             response.sendRedirect("Controller?action=productoverview");
         } catch (DomainException | IllegalArgumentException | DbException e) {
             request.setAttribute("error", e.getMessage());
