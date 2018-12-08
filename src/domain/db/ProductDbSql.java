@@ -66,7 +66,7 @@ public class ProductDbSql implements ProductDb {
                 Connection connection = DriverManager.getConnection(url, properties);
                 Statement statement = connection.createStatement()
         ) {
-            ResultSet result = statement.executeQuery("SELECT * FROM products");
+            ResultSet result = statement.executeQuery("SELECT * FROM products ORDER BY productid");
             while (result.next()) {
                 int productId = result.getInt("productid");
                 String name = result.getString("name");

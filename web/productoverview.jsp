@@ -19,11 +19,11 @@
     <main>
         <c:choose>
             <c:when test="${not empty products}">
-                <table>
+                <table id="mainTable">
                     <tr>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
+                        <th onclick="sortTable(0)" style="cursor:pointer">Name</th>
+                        <th onclick="sortTable(1)" style="cursor:pointer">Description</th>
+                        <th onclick="sortTable(2)" style="cursor:pointer">Price</th>
                         <th></th>
                     </tr>
                     <c:forEach var="product" items="${products}">

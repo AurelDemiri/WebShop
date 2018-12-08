@@ -18,23 +18,19 @@
     </header>
     <main>
         <c:choose>
-            <c:when test="${not empty people}">
-                <table>
+            <c:when test="${not empty users}">
+                <table id="mainTable">
                     <tr>
-                        <th>E-mail</th>
-                        <th>First Name</th>
-                        <th>Last Name</th>
-                        <th>Delete</th>
+                        <th onclick="sortTable(0)" style="cursor:pointer">E-mail</th>
+                        <th onclick="sortTable(1)" style="cursor:pointer">First Name</th>
+                        <th onclick="sortTable(2)" style="cursor:pointer">Last Name</th>
                         <th>Check Password</th>
                     </tr>
-                    <c:forEach var="user" items="${people}">
+                    <c:forEach var="user" items="${users}">
                         <tr>
                             <td><c:out value='${user.email}'/></td>
                             <td><c:out value='${user.firstName}'/></td>
                             <td><c:out value='${user.lastName}'/></td>
-                            <td>
-                                <a href="Controller?action=deleteuser&userid=<c:out value='${user.userId}'/>">Delete</a>
-                            </td>
                             <td>
                                 <a href="Controller?action=checkpassword&userid=<c:out value='${user.userId}'/>">Check</a>
                             </td>

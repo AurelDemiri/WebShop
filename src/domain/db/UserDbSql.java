@@ -85,12 +85,12 @@ public class UserDbSql implements UserDb {
 
     @Override
     public List<User> getAll() {
-        List<User> people = new ArrayList<>();
+        List<User> users = new ArrayList<>();
         try (
                 Connection connection = DriverManager.getConnection(url, properties);
                 Statement statement = connection.createStatement()
         ) {
-            ResultSet result = statement.executeQuery("SELECT * FROM users");
+            ResultSet result = statement.executeQuery("SELECT * FROM users ORDER BY userid");
             while (result.next()) {
                 String userId = String.valueOf(result.getInt("userid"));
                 String email = result.getString("email");
@@ -99,12 +99,12 @@ public class UserDbSql implements UserDb {
                 String lastName = result.getString("lastname");
 
                 User user = new User(userId, email, password, firstName, lastName);
-                people.add(user);
+                users.add(user);
             }
         } catch (SQLException e) {
             throw new DbException(e.getMessage(), e);
         }
-        return people;
+        return users;
     }
 
     @Override
