@@ -28,18 +28,16 @@
                     </tr>
                     <c:forEach var="product" items="${products}">
                         <tr>
-                            <td>
-                                <a href="Controller?action=updateproduct&productid=<c:out value='${product.productId}'/>"><c:out
-                                        value='${product.name}'/></a></td>
+                            <td><c:out value='${product.name}'/></td>
                             <td><c:out value='${product.description}'/></td>
-                            <td><c:out value='${product.price}'/></td>
+                            <td>&euro; <c:out value='${product.price}'/></td>
                             <td>
-                                <a href="Controller?action=deleteproduct&productid=<c:out value='${product.productId}'/>">Delete</a>
+                                <a href="Controller?action=addtocart&productid=<c:out value='${product.productId}'/>">Add to cart</a>
                             </td>
                         </tr>
                     </c:forEach>
 
-                    <caption>Products Overview</caption>
+                    <caption>Product Overview</caption>
                 </table>
             </c:when>
             <c:otherwise>

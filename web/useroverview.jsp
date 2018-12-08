@@ -41,7 +41,7 @@
                         </tr>
                     </c:forEach>
 
-                    <caption>Users Overview</caption>
+                    <caption>User Overview</caption>
                 </table>
             </c:when>
             <c:otherwise>

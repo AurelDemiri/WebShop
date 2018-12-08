@@ -40,15 +40,42 @@ public class ShopService {
         return userDb;
     }
 
-    public Product getProduct(String productId) { return getProductDb().get(productId); }
+    public Product getProduct(String productId) {
+        return getProductDb().get(productId);
+    }
 
-    public List<Product> getProducts() { return getProductDb().getAll(); }
+    public List<Product> getProducts() {
+        return getProductDb().getAll();
+    }
 
-    public void addProduct(Product product) { getProductDb().add(product);}
+    public void addProduct(Product product) {
+        getProductDb().add(product);
+    }
 
-    public void updateProduct(Product product) { getProductDb().update(product); }
+    public void updateProduct(Product product) {
+        getProductDb().update(product);
+    }
 
-    public void deleteProduct(int id) { getProductDb().delete(id); }
+    public void deleteProduct(int id) {
+        getProductDb().delete(id);
+    }
 
-    private ProductDb getProductDb() { return productDb; }
+    private ProductDb getProductDb() {
+        return productDb;
+    }
+
+    public User getUserIfAuthenticated(String email, String password) {
+        try {
+            User user = getUserDb().getFromEmail(email);
+            if (user.isPasswordCorrect(password)) {
+                return user;
+            }
+            else {
+                throw new DbException();
+            }
+        }
+        catch (DbException e) {
+            throw new IllegalArgumentException("Wrong email address or password");
+        }
+    }
 }

@@ -16,7 +16,7 @@
         <jsp:include page="navbar.jsp">
             <jsp:param name="title" value="Home"/>
         </jsp:include>
-
+        <c:if test="${sessionScope.loggedinUser != null}"><h3>Welcome, <c:out value='${sessionScope.loggedinUser.firstName}'/>!</h3></c:if>
     </header>
     <main> Sed ut perspiciatis unde omnis iste natus error sit
         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque

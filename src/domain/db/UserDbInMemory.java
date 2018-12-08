@@ -27,6 +27,20 @@ public class UserDbInMemory implements UserDb {
     }
 
     @Override
+    public User getFromEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            throw new DbException("No email given");
+        }
+
+        User foundUser = users.values().stream().filter(x -> x.getEmail().equals(email)).findFirst().orElse(null);
+
+        if (foundUser == null) {
+            throw new DbException("User with email address \"" + email + "\" does not exist");
+        }
+        return foundUser;
+    }
+
+    @Override
     public List<User> getAll() {
         return new ArrayList<User>(users.values());
     }
@@ -36,9 +50,15 @@ public class UserDbInMemory implements UserDb {
         if (user == null) {
             throw new DbException("No user given");
         }
+
         if (users.containsKey(user.getUserId())) {
             throw new DbException("User already exists");
         }
+
+        if (users.values().stream().anyMatch(x -> x.getEmail().equals(user.getEmail()))) {
+            throw new DbException("User with email address \"" + user.getEmail() + "\" already exists");
+        }
+
         users.put(user.getUserId(), user);
     }
 

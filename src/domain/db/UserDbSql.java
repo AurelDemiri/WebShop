@@ -56,6 +56,34 @@ public class UserDbSql implements UserDb {
     }
 
     @Override
+    public User getFromEmail(String email) {
+        if (email == null || email.isEmpty()) {
+            throw new DbException("No email address given");
+        }
+
+        try (
+                Connection connection = DriverManager.getConnection(url, properties);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM users WHERE email = ?")
+        ) {
+            statement.setString(1, email);
+
+            ResultSet result = statement.executeQuery();
+            if (result.next()) {
+                String userId = String.valueOf(result.getInt("userid"));
+                String password = result.getString("password");
+                String firstName = result.getString("firstname");
+                String lastName = result.getString("lastname");
+
+                return new User(userId, email, password, firstName, lastName);
+            }
+        } catch (SQLException e) {
+            throw new DbException(e.getMessage(), e);
+        }
+
+        throw new DbException("User with email address \"" + email + "\" does not exist");
+    }
+
+    @Override
     public List<User> getAll() {
         List<User> people = new ArrayList<>();
         try (

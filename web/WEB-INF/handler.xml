@@ -4,6 +4,8 @@
     <entry key="home">controller.handler.HomeHandler</entry>
     <entry key="useroverview">controller.handler.UserOverviewHandler</entry>
     <entry key="signup">controller.handler.SignUpHandler</entry>
+    <entry key="login">controller.handler.LoginHandler</entry>
+    <entry key="logout">controller.handler.LogoutHandler</entry>
     <entry key="checkpassword">controller.handler.CheckPasswordHandler</entry>
     <entry key="deleteuser">controller.handler.DeleteUserHandler</entry>
     <entry key="productoverview">controller.handler.ProductOverviewHandler</entry>

@@ -51,6 +51,10 @@ h2, main, footer {
     padding: 15px 10px;
 }
 
+h3 {
+    padding: 10px 10px 15px;
+}
+
 h1 {
     background-image: url("../images/bannerKlein.png");
     height: 100px;

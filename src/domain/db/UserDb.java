@@ -7,6 +7,8 @@ import java.util.List;
 public interface UserDb {
     User get(String userId);
 
+    User getFromEmail(String email);
+
     List<User> getAll();
 
     void add(User user);
