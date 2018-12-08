@@ -5,22 +5,26 @@ import java.security.MessageDigest;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Person {
-    private String userId;
+public class User {
+    private int userId;
     private String email;
     private String password;
     private String firstName;
     private String lastName;
 
-    public Person(String userId, String email, String password, String firstName, String lastName) {
-        setUserId(userId);
+    public User(String email, String password, String firstName, String lastName) {
         setEmail(email);
         setPassword(password);
         setFirstName(firstName);
         setLastName(lastName);
     }
 
-    public String getUserId() {
+    public User(String userId, String email, String password, String firstName, String lastName) {
+        this(email, password, firstName, lastName);
+        setUserId(userId);
+    }
+
+    public int getUserId() {
         return userId;
     }
 
@@ -29,7 +33,12 @@ public class Person {
             throw new IllegalArgumentException("No userId given");
         }
 
-        this.userId = userId;
+        try {
+            this.userId = Integer.parseInt(userId);
+        }
+        catch (NumberFormatException e) {
+            throw new IllegalArgumentException("User id is not a valid number");
+        }
     }
 
     public String getEmail() {

@@ -1,43 +1,43 @@
 package domain.service;
 
 import domain.db.*;
-import domain.model.Person;
+import domain.model.User;
 import domain.model.Product;
 
 import java.util.List;
 import java.util.Properties;
 
 public class ShopService {
-    private PersonDb personDb;
+    private UserDb userDb;
     private ProductDb productDb;
 
     public ShopService(Properties properties) {
-        personDb = new PersonDbSql(properties);
+        userDb = new UserDbSql(properties);
         productDb = new ProductDbSql(properties);
     }
 
-    public Person getPerson(String personId) {
-        return getPersonDb().get(personId);
+    public User getUser(String userId) {
+        return getUserDb().get(userId);
     }
 
-    public List<Person> getPersons() {
-        return getPersonDb().getAll();
+    public List<User> getUsers() {
+        return getUserDb().getAll();
     }
 
-    public void addPerson(Person person) {
-        getPersonDb().add(person);
+    public void addUser(User user) {
+        getUserDb().add(user);
     }
 
-    public void updatePerson(Person person) {
-        getPersonDb().update(person);
+    public void updateUser(User user) {
+        getUserDb().update(user);
     }
 
-    public void deletePerson(String id) {
-        getPersonDb().delete(id);
+    public void deleteUser(String userId) {
+        getUserDb().delete(userId);
     }
 
-    private PersonDb getPersonDb() {
-        return personDb;
+    private UserDb getUserDb() {
+        return userDb;
     }
 
     public Product getProduct(String productId) { return getProductDb().get(productId); }

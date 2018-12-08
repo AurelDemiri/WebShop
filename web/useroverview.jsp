@@ -27,16 +27,16 @@
                         <th>Delete</th>
                         <th>Check Password</th>
                     </tr>
-                    <c:forEach var="person" items="${people}">
+                    <c:forEach var="user" items="${people}">
                         <tr>
-                            <td><c:out value='${person.email}'/></td>
-                            <td><c:out value='${person.firstName}'/></td>
-                            <td><c:out value='${person.lastName}'/></td>
+                            <td><c:out value='${user.email}'/></td>
+                            <td><c:out value='${user.firstName}'/></td>
+                            <td><c:out value='${user.lastName}'/></td>
                             <td>
-                                <a href="Controller?action=deleteperson&userid=<c:out value='${person.userId}'/>">Delete</a>
+                                <a href="Controller?action=deleteuser&userid=<c:out value='${user.userId}'/>">Delete</a>
                             </td>
                             <td>
-                                <a href="Controller?action=checkpassword&userid=<c:out value='${person.userId}'/>">Check</a>
+                                <a href="Controller?action=checkpassword&userid=<c:out value='${user.userId}'/>">Check</a>
                             </td>
                         </tr>
                     </c:forEach>

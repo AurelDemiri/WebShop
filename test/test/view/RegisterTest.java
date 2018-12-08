@@ -37,7 +37,7 @@ public class RegisterTest {
         String title = driver.getTitle();
         assertEquals("User Overview", title);
 
-        driver.get(path + "?action=personoverview");
+        driver.get(path + "?action=useroverview");
 
         ArrayList<WebElement> listItems = (ArrayList<WebElement>) driver.findElements(By.cssSelector("table tr"));
         boolean found = false;

@@ -21,8 +21,6 @@
 
         <form method="post" action="Controller?action=signup" novalidate="novalidate">
             <!-- novalidate in order to be able to run tests correctly -->
-            <p><label for="userId">User id</label><input type="text" id="userId" name="userId"
-                                                         required value="<c:out value='${keptUserId}'/>"></p>
             <p><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName"
                                                                required value="<c:out value='${keptFirstName}'/>"></p>
             <p><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName"

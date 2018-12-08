@@ -1,7 +1,6 @@
 package domain.db;
 
 import domain.model.DomainException;
-import domain.model.Person;
 import domain.model.Product;
 
 import java.sql.*;
@@ -28,7 +27,7 @@ public class ProductDbSql implements ProductDb {
     public Product get(int id) {
         try (
                 Connection connection = DriverManager.getConnection(url, properties);
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM product WHERE productid = ?")
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM products WHERE productid = ?")
         ) {
             statement.setInt(1, id);
 
@@ -67,7 +66,7 @@ public class ProductDbSql implements ProductDb {
                 Connection connection = DriverManager.getConnection(url, properties);
                 Statement statement = connection.createStatement()
         ) {
-            ResultSet result = statement.executeQuery("SELECT * FROM product");
+            ResultSet result = statement.executeQuery("SELECT * FROM products");
             while (result.next()) {
                 int productId = result.getInt("productid");
                 String name = result.getString("name");
@@ -91,7 +90,7 @@ public class ProductDbSql implements ProductDb {
 
         try (
                 Connection connection = DriverManager.getConnection(url, properties);
-                PreparedStatement statement = connection.prepareStatement("INSERT INTO product (name, description, price) VALUES (?,?,?)")
+                PreparedStatement statement = connection.prepareStatement("INSERT INTO products (name, description, price) VALUES (?,?,?)")
         ) {
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
@@ -110,7 +109,7 @@ public class ProductDbSql implements ProductDb {
 
         try (
                 Connection connection = DriverManager.getConnection(url, properties);
-                PreparedStatement statement = connection.prepareStatement("UPDATE product SET name = ?, description = ?, price = ? WHERE productid = ?")
+                PreparedStatement statement = connection.prepareStatement("UPDATE products SET name = ?, description = ?, price = ? WHERE productid = ?")
         ) {
             statement.setString(1, product.getName());
             statement.setString(2, product.getDescription());
@@ -126,7 +125,7 @@ public class ProductDbSql implements ProductDb {
     public void delete(int id) {
         try (
                 Connection connection = DriverManager.getConnection(url, properties);
-                PreparedStatement statement = connection.prepareStatement("DELETE FROM product WHERE productid = ?")
+                PreparedStatement statement = connection.prepareStatement("DELETE FROM products WHERE productid = ?")
         ) {
             statement.setInt(1, id);
             statement.executeUpdate();
@@ -137,7 +136,7 @@ public class ProductDbSql implements ProductDb {
 
     @Override
     public int getNumberOfProducts() {
-        // Can be done faster by rewriting query using COUNT(*)
+        // TODO: Can be done faster by rewriting query using COUNT(*)
         return getAll().size();
     }
 }

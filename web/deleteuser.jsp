@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta charset="UTF-8">
-    <title>Delete Person</title>
+    <title>Delete User</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
     </header>
     <main>
         <jsp:include page="errormessage.jsp" />
-        <form method="post" action="Controller?action=deleteperson&userid=<c:out value='${param.userid}'/>">
+        <form method="post" action="Controller?action=deleteuser&userid=<c:out value='${param.userid}'/>">
             <input type="submit" id="ok" name="ok" value="Ok"><input type="submit" id="cancel" name="cancel" value="Cancel">
         </form>
     </main>

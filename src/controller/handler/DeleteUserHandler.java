@@ -3,22 +3,22 @@ package controller.handler;
 import controller.RequestHandler;
 import domain.db.DbException;
 import domain.model.DomainException;
-import domain.model.Person;
+import domain.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class DeletePersonHandler extends RequestHandler {
+public class DeleteUserHandler extends RequestHandler {
     @Override
     public void handleGet(HttpServletRequest request, HttpServletResponse response) {
         try {
-            getService().getPerson(request.getParameter("userid"));
+            getService().getUser(request.getParameter("userid"));
         } catch (DomainException | IllegalArgumentException | DbException e) {
             request.setAttribute("error", e.getMessage());
         }
 
-        setDestination("deleteperson.jsp");
+        setDestination("deleteuser.jsp");
     }
 
     @Override
@@ -29,16 +29,16 @@ public class DeletePersonHandler extends RequestHandler {
             String userId = request.getParameter("userid");
 
             try {
-                Person person = getService().getPerson(userId);
-                getService().deletePerson(person.getUserId());
-                response.sendRedirect("Controller?action=personoverview");
+                User user = getService().getUser(userId);
+                getService().deleteUser(String.valueOf(user.getUserId()));
+                response.sendRedirect("Controller?action=useroverview");
             } catch (DomainException | IllegalArgumentException | DbException e) {
                 request.setAttribute("error", e.getMessage());
             }
         } else {
-            response.sendRedirect("Controller?action=personoverview");
+            response.sendRedirect("Controller?action=useroverview");
         }
 
-        setDestination("deleteperson.jsp");
+        setDestination("deleteuser.jsp");
     }
 }

@@ -3,7 +3,7 @@ package controller.handler;
 import controller.RequestHandler;
 import domain.db.DbException;
 import domain.model.DomainException;
-import domain.model.Person;
+import domain.model.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +12,7 @@ public class CheckPasswordHandler extends RequestHandler {
     @Override
     public void handleGet(HttpServletRequest request, HttpServletResponse response) {
         try {
-            getService().getPerson(request.getParameter("userid"));
+            getService().getUser(request.getParameter("userid"));
         } catch (DomainException | IllegalArgumentException | DbException e) {
             request.setAttribute("error", e.getMessage());
         }
@@ -26,8 +26,8 @@ public class CheckPasswordHandler extends RequestHandler {
         String password = request.getParameter("password");
 
         try {
-            Person person = getService().getPerson(userId);
-            if (person.isPasswordCorrect(password)) {
+            User user = getService().getUser(userId);
+            if (user.isPasswordCorrect(password)) {
                 request.setAttribute("message", "The password is correct.");
             } else {
                 request.setAttribute("message", "The password is NOT correct.");
