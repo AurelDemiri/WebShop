@@ -4,7 +4,6 @@
         <li<c:if test="${param.title == 'Home'}"> id="actual"</c:if>><a href="./">Home</a></li>
         <li<c:if test="${param.title == 'User Overview'}"> id="actual"</c:if>><a href="Controller?action=useroverview">Users</a></li>
         <li<c:if test="${param.title == 'Product Overview'}"> id="actual"</c:if>><a href="Controller?action=productoverview">Products</a></li>
-        <li<c:if test="${param.title == 'Add Product'}"> id="actual"</c:if>><a href="Controller?action=addproduct">Add Product</a></li>
         <c:choose>
             <c:when test="${sessionScope.loggedinUser != null}">
                 <li<c:if test="${param.title == 'My Cart'}"> id="actual"</c:if>><a href="Controller?action=mycart">My Cart</a></li>
