@@ -1,5 +1,6 @@
 package controller;
 
+import domain.model.Cart;
 import domain.service.ShopService;
 
 import javax.servlet.ServletException;
@@ -27,6 +28,17 @@ public abstract class RequestHandler {
 
     protected void setDestination(String destination) {
         this.destination = destination;
+    }
+
+    protected boolean isUserLoggedIn(HttpServletRequest request) {
+        return request.getSession().getAttribute("loggedinUser") != null;
+    }
+
+    protected Cart getCart(HttpServletRequest request) {
+        if (request.getSession().getAttribute("cart") == null)
+            request.getSession().setAttribute("cart", new Cart());
+
+        return (Cart) request.getSession().getAttribute("cart");
     }
 
     public ShopService getService() {

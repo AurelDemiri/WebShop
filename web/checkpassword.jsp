@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
     <title>Check Password</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -21,7 +21,7 @@
         <jsp:include page="errormessage.jsp"/>
         <c:choose>
             <c:when test="${message == null}">
-                <p>Fill out your password:</p>
+                <p>Fill in the password:</p>
                 <form method="post" action="Controller?action=checkpassword&userid=<c:out value='${param.userid}'/>"
                       novalidate="novalidate">
                     <!-- novalidate in order to be able to run tests correctly -->

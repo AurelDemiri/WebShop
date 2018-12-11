@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
     <title>Add Product</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -18,15 +18,16 @@
 
     </header>
     <main>
-        <jsp:include page="errormessage.jsp" />
+        <jsp:include page="errormessage.jsp"/>
         <form method="post" action="Controller?action=addproduct" novalidate="novalidate">
             <!-- novalidate in order to be able to run tests correctly -->
             <p><label for="name">Name</label><input type="text" id="name" name="name"
-                                                         required value="<c:out value='${keptName}'/>"></p>
+                                                    required value="<c:out value='${keptName}'/>"></p>
             <p><label for="description">Description</label><input type="text" id="description" name="description"
-                                                               required value="<c:out value='${keptDescription}'/>"></p>
+                                                                  required value="<c:out value='${keptDescription}'/>">
+            </p>
             <p><label for="price">Price</label><input type="text" id="price" name="price"
-                                                             required value="<c:out value='${keptPrice}'/>"></p>
+                                                      required value="<c:out value='${keptPrice}'/>"></p>
             <p><input type="submit" id="addProduct" value="Add Product"></p>
 
         </form>

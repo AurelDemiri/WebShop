@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
     <title>Product Overview</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="./js/sorttable.js"></script>
@@ -21,6 +21,8 @@
     <main>
         <c:choose>
             <c:when test="${not empty products}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda atque eius numquam quo sint
+                    tempora?</p>
                 <table id="mainTable">
                     <tr>
                         <th onclick="sortTable(0)" style="cursor:pointer">Name</th>
@@ -34,7 +36,8 @@
                             <td><c:out value='${product.description}'/></td>
                             <td>&euro; <c:out value='${product.price}'/></td>
                             <td>
-                                <a href="Controller?action=addtocart&productid=<c:out value='${product.productId}'/>">Add to cart</a>
+                                <a href="Controller?action=addtocart&productid=<c:out value='${product.productId}'/>">Add
+                                    to cart</a>
                             </td>
                         </tr>
                     </c:forEach>

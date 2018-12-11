@@ -5,24 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
-    <title>Delete User</title>
+    <title>Order Confirmation</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="./js/sorttable.js"></script>
 </head>
 <body>
 <div id="container">
     <header>
         <h1><span>Web shop</span></h1>
         <jsp:include page="navbar.jsp">
-            <jsp:param name="title" value="Are you sure?"/>
+            <jsp:param name="title" value="Thank you for your purchase!"/>
         </jsp:include>
 
     </header>
     <main>
         <jsp:include page="errormessage.jsp"/>
-        <form method="post" action="Controller?action=deleteuser&userid=<c:out value='${param.userid}'/>">
-            <input type="submit" id="ok" name="ok" value="Ok"><input type="submit" id="cancel" name="cancel"
-                                                                     value="Cancel">
-        </form>
+        <c:if test="${error == null}">
+        <p>Hi <c:out value='${sessionScope.loggedinUser.firstName}'/>, we're getting your order ready to be shipped. We will
+            notify you when it has been sent.</p>
+        </c:if>
     </main>
     <footer>
         &copy; Webontwikkeling 3, UC Leuven-Limburg

@@ -4,7 +4,6 @@ import controller.RequestHandler;
 import domain.db.DbException;
 import domain.model.DomainException;
 
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -13,18 +12,15 @@ public class LoginHandler extends RequestHandler {
 
     @Override
     public void handleGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        if (request.getSession().getAttribute("loggedinUser") == null) {
-            setDestination("login.jsp");
-        }
-        else {
+        if (isUserLoggedIn(request))
             response.sendRedirect("./");
-        }
+
+        setDestination("login.jsp");
     }
 
     @Override
     public void handlePost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // Already logged in
-        if (request.getSession().getAttribute("loggedinUser") != null) {
+        if (isUserLoggedIn(request)) {
             response.sendRedirect("./");
             return;
         }

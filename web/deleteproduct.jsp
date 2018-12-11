@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
     <title>Delete Product</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -18,9 +18,10 @@
 
     </header>
     <main>
-        <jsp:include page="errormessage.jsp" />
+        <jsp:include page="errormessage.jsp"/>
         <form method="post" action="Controller?action=deleteproduct&productid=<c:out value='${param.productid}'/>">
-            <input type="submit" id="ok" name="ok" value="Ok"><input type="submit" id="cancel" name="cancel" value="Cancel">
+            <input type="submit" id="ok" name="ok" value="Ok"><input type="submit" id="cancel" name="cancel"
+                                                                     value="Cancel">
         </form>
     </main>
     <footer>

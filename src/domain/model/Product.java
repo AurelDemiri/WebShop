@@ -1,5 +1,7 @@
 package domain.model;
 
+import java.util.Objects;
+
 public class Product {
     private int productId;
     private String name;
@@ -90,4 +92,16 @@ public class Product {
         return getName() + ": " + getDescription() + " - " + getPrice();
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return getProductId() == product.getProductId();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getProductId());
+    }
 }

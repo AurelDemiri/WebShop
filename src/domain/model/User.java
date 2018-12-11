@@ -35,8 +35,7 @@ public class User {
 
         try {
             this.userId = Integer.parseInt(userId);
-        }
-        catch (NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new IllegalArgumentException("User id is not a valid number");
         }
     }

@@ -13,8 +13,7 @@ public class SignUpHandler extends RequestHandler {
 
     @Override
     public void handleGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        // Already logged in
-        if (request.getSession().getAttribute("loggedinUser") != null) {
+        if (isUserLoggedIn(request)) {
             response.sendRedirect("./");
             return;
         }

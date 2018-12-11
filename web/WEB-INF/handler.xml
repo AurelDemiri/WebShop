@@ -13,4 +13,9 @@
     <entry key="updateproduct">controller.handler.UpdateProductHandler</entry>
     <entry key="deleteproduct">controller.handler.DeleteProductHandler</entry>
     <entry key="changepreferences">controller.handler.ChangePreferencesHandler</entry>
+    <entry key="mycart">controller.handler.MyCartHandler</entry>
+    <entry key="addtocart">controller.handler.AddToCartHandler</entry>
+    <entry key="removefromcart">controller.handler.RemoveFromCartHandler</entry>
+    <entry key="clearcart">controller.handler.ClearCartHandler</entry>
+    <entry key="directorder">controller.handler.DirectOrderHandler</entry>
 </properties>

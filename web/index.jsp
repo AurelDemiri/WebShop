@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
     <title>Home</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
@@ -17,7 +17,8 @@
         <jsp:include page="navbar.jsp">
             <jsp:param name="title" value="Home"/>
         </jsp:include>
-        <c:if test="${sessionScope.loggedinUser != null}"><h3>Welcome, <c:out value='${sessionScope.loggedinUser.firstName}'/>!</h3></c:if>
+        <c:if test="${sessionScope.loggedinUser != null}"><h3>Welcome, <c:out
+                value='${sessionScope.loggedinUser.firstName}'/>!</h3></c:if>
     </header>
     <main> Sed ut perspiciatis unde omnis iste natus error sit
         voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque
@@ -25,11 +26,11 @@
         dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
         aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos
         qui ratione voluptatem sequi nesciunt.
-        <br />
+        <br/>
         <form method="post" action="Controller?action=changepreferences" novalidate>
             <p>Do you want to see a quote?</p>
             <p><input type="radio" name="showquote" value="yes"<c:if test="${showquote == 'yes'}"> checked</c:if>> Yes
-               <input type="radio" name="showquote" value="no"<c:if test="${showquote == 'no'}"> checked</c:if>> No
+                <input type="radio" name="showquote" value="no"<c:if test="${showquote == 'no'}"> checked</c:if>> No
             </p>
             <p><input type="submit" id="send" value="Send"></p>
         </form>

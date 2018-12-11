@@ -17,9 +17,10 @@ public class UpdateProductHandler extends RequestHandler {
             request.setAttribute("keptName", product.getName());
             request.setAttribute("keptDescription", product.getDescription());
             request.setAttribute("keptPrice", product.getPrice());
-        } catch (DomainException e) {
-            response.sendRedirect("Controller?action=productoverview");
+        } catch (DomainException | IllegalArgumentException | DbException e) {
+            request.setAttribute("error", e.getMessage());
         }
+
         setDestination("updateproduct.jsp");
     }
 

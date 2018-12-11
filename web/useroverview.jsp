@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="icon" href="./images/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="./images/favicon.ico" type="image/x-icon"/>
     <title>User Overview</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <script src="./js/sorttable.js"></script>
@@ -21,6 +21,8 @@
     <main>
         <c:choose>
             <c:when test="${not empty users}">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda eum eveniet itaque iusto nisi
+                    officiis omnis quasi saepe sed totam?</p>
                 <table id="mainTable">
                     <tr>
                         <th onclick="sortTable(0)" style="cursor:pointer">E-mail</th>

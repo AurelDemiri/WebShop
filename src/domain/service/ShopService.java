@@ -1,8 +1,8 @@
 package domain.service;
 
 import domain.db.*;
-import domain.model.User;
 import domain.model.Product;
+import domain.model.User;
 
 import java.util.List;
 import java.util.Properties;
@@ -69,12 +69,10 @@ public class ShopService {
             User user = getUserDb().getFromEmail(email);
             if (user.isPasswordCorrect(password)) {
                 return user;
-            }
-            else {
+            } else {
                 throw new DbException();
             }
-        }
-        catch (DbException e) {
+        } catch (DbException e) {
             throw new IllegalArgumentException("Wrong email address or password");
         }
     }

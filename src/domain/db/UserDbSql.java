@@ -34,8 +34,7 @@ public class UserDbSql implements UserDb {
         ) {
             try {
                 statement.setInt(1, Integer.parseInt(userId));
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("User id is not a valid number");
             }
 
@@ -165,8 +164,7 @@ public class UserDbSql implements UserDb {
         ) {
             try {
                 statement.setInt(1, Integer.parseInt(userId));
-            }
-            catch (NumberFormatException e) {
+            } catch (NumberFormatException e) {
                 throw new IllegalArgumentException("User id is not a valid number");
             }
 
